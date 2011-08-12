@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Sijmen J. Mulder']
   s.email       = ['sjmulder@gmail.com']
   s.homepage    = 'https://github.com/sjmulder/ipa'
-  s.summary     = 'TODO: Write a gem summary'
-  s.description = 'TODO: Write a gem description'
+  s.summary     = 'Reads metadata from IPA files'
+  s.description = 'Reads metadata from iPhone/iPad IPA files, such as title, version, and icon files.'
 
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project         = 'ipa'
