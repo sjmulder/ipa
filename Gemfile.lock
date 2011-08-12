@@ -1,0 +1,27 @@
+GIT
+  remote: https://github.com/sjmulder/plist.git
+  revision: 19146cdab122374fece2c49678c7ab425612be83
+  specs:
+    plist (3.1.7)
+
+PATH
+  remote: .
+  specs:
+    IPA (0.0.1)
+      plist (~> 3.1.7)
+      rubyzip (~> 0.9.4)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rake (0.9.2)
+    rubyzip (0.9.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  IPA!
+  bundler (>= 1.0.0)
+  plist (~> 3.1.7)!
+  rake
