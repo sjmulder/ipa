@@ -2,7 +2,7 @@
 require File.expand_path('../lib/ipa/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = 'IPA'
+  s.name        = 'ipa'
   s.version     = IPA::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Sijmen J. Mulder']

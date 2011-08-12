@@ -7,7 +7,7 @@ GIT
 PATH
   remote: .
   specs:
-    IPA (0.1.0)
+    ipa (0.1.0)
       plist (~> 3.1.7)
       rubyzip (~> 0.9.4)
 
@@ -21,7 +21,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  IPA!
   bundler (>= 1.0.0)
+  ipa!
   plist (~> 3.1.7)!
   rake
