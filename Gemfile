@@ -4,4 +4,4 @@ source :gemcutter
 gemspec
 
 gem 'rake'
-gem 'plist', '~> 3.1.7', :git => 'https://github.com/sjmulder/plist.git'
+gem 'sj-plist', :require => 'plist'
