@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ipa (0.1.1)
+    ipa (0.1.2)
       rubyzip (~> 0.9.4)
       sj-plist
 
