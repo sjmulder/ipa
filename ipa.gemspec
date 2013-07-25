@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = 'ipa'
 
 	s.add_dependency 'rubyzip', '~> 0.9.4'
-	s.add_dependency 'sj-plist'
+	s.add_dependency 'CFPropertyList', '~> 2.2.0'
   s.add_development_dependency 'bundler', '>= 1.0.0'
 
   s.files        = `git ls-files`.split("\n")

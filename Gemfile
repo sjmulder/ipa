@@ -4,4 +4,4 @@ source :gemcutter
 gemspec
 
 gem 'rake'
-gem 'sj-plist', :require => 'plist'
+gem 'CFPropertyList', '~> 2.2.0'

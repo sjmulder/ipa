@@ -1,7 +1,6 @@
 require 'zip/zip'
 require 'zip/zipfilesystem'
-require 'plist'
-require 'plist/binary'
+require 'cfpropertylist'
 
 module IPA
 	class IPAFile
@@ -53,9 +52,13 @@ module IPA
 			data
 		end
 
-		def info 
-			@info_plist ||= Plist::Binary::decode_binary_plist(
-				payload_file('Info.plist'))
+		def info
+			if @info_plist.nil?
+				data = payload_file('Info.plist')
+				plist = CFPropertyList::List.new(:data => data)
+				@info_plist = CFPropertyList.native_types(plist.value)
+			end
+			@info_plist
 		end
 		
 		def icon
