@@ -60,9 +60,15 @@ module IPA
 			end
 			@info_plist
 		end
-		
+
 		def icon
-			payload_file('Icon.png')
+			path = info &&
+				info['CFBundleIcons'] &&
+				info['CFBundleIcons']['CFBundlePrimaryIcon'] &&
+				(info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
+				 info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFiles'].first)
+			path ||= 'Icon.png'
+			payload_file(path)
 		end
 
 		def artwork
