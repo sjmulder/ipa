@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.name        = 'ipa'
   s.version     = IPA::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Sijmen J. Mulder']
-  s.email       = ['sjmulder@gmail.com']
+  s.authors     = ['Sijmen Mulder']
+  s.email       = ['ik@sjmulder.nl']
   s.homepage    = 'https://github.com/sjmulder/ipa'
   s.summary     = 'Reads metadata from IPA files'
   s.description = 'Reads metadata from iPhone/iPad IPA files, such as title, version, and icon files.'
