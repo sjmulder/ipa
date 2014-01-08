@@ -61,15 +61,31 @@ module IPA
 			@info_plist
 		end
 
-		def icon
-			path = info &&
-				info['CFBundleIcons'] &&
-				info['CFBundleIcons']['CFBundlePrimaryIcon'] &&
-				(info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
-				 info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFiles'].first)
-			path ||= 'Icon.png'
-			payload_file(path)
-		end
+    def icons
+      paths = info &&
+          info['CFBundleIcons'] &&
+          info['CFBundleIcons']['CFBundlePrimaryIcon'] &&
+          (info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
+              info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFiles'])
+      paths ||= 'Icon.png'
+
+      unless paths.is_a?(Array)
+        paths = [paths]
+      end
+
+      paths = paths.map do |path|
+        begin
+          @zipfile.entries.entries.map { |e| File.basename(e.name) }.select { |name| name.start_with?(path) }
+        rescue Exception => e
+          STDERR.puts "\n\nException #{e}\n\n"
+          nil
+        end
+      end.flatten.compact.map do |path|
+        [path, Proc.new { payload_file(path) }]
+      end
+
+      Hash[paths]
+    end
 
 		def artwork
 			payload_file('iTunesArtwork')
