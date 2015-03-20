@@ -15,7 +15,8 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project         = 'ipa'
 
-	s.add_dependency 'rubyzip', '~> 0.9.4'
+	s.add_dependency 'rubyzip', '~> 1.1'
+  s.add_dependency 'zip-zip', '~> 0.3'
 	s.add_dependency 'CFPropertyList', '~> 2.2.0'
   s.add_development_dependency 'bundler', '>= 1.0.0'
 
