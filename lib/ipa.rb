@@ -13,7 +13,9 @@ module IPA
 			:is_iphone      => 'LSRequiresIPhoneOS',
 			:app_category   => 'LSApplicationCategoryType',
 			:version        => 'CFBundleVersion',
-			:version_string => 'CFBundleShortVersionString'
+			:version_string => 'CFBundleShortVersionString',
+			:minimum_os_version => 'MinimumOSVersion',
+			:device_family      => 'UIDeviceFamily',
 		}
 
 		MAPPED_INFO_KEYS.each do |method_name, key_name|
