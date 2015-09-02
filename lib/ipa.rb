@@ -64,12 +64,17 @@ module IPA
 		end
 
     def icons
-      paths = info &&
-          info['CFBundleIcons'] &&
-          info['CFBundleIcons']['CFBundlePrimaryIcon'] &&
-          (info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
-              info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFiles'])
-      paths ||= 'Icon.png'
+      paths = []
+      path_keys = ['CFBundleIcons', 'CFBundleIcons~ipad']
+      path_keys.each do |path_key|
+        icons = info && (info[path_key] &&
+            info[path_key]['CFBundlePrimaryIcon'] &&
+              (info[path_key]['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
+                info[path_key]['CFBundlePrimaryIcon']['CFBundleIconFiles']))
+        paths.push(*icons)
+      end
+
+      paths << 'Icon.png' if paths.size == 0
 
       unless paths.is_a?(Array)
         paths = [paths]
