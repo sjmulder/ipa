@@ -63,6 +63,8 @@ module IPA
 			@info_plist
 		end
 
+    # Note: The returned pngs are crushed by Apple during the ipa creation. To uncrush use:
+    # `xcrun -sdk iphoneos pngcrush -revert-iphone-optimizations crushed.png uncrushed.png`
     def icons
       paths = []
       path_keys = ['CFBundleIcons', 'CFBundleIcons~ipad']
