@@ -4,4 +4,3 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rake'
-gem 'CFPropertyList', '~> 2.2.0'
