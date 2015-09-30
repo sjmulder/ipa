@@ -13,7 +13,9 @@ module IPA
 			:is_iphone      => 'LSRequiresIPhoneOS',
 			:app_category   => 'LSApplicationCategoryType',
 			:version        => 'CFBundleVersion',
-			:version_string => 'CFBundleShortVersionString'
+			:version_string => 'CFBundleShortVersionString',
+			:minimum_os_version => 'MinimumOSVersion',
+			:device_family      => 'UIDeviceFamily',
 		}
 
 		MAPPED_INFO_KEYS.each do |method_name, key_name|
@@ -61,13 +63,20 @@ module IPA
 			@info_plist
 		end
 
+    # Note: The returned pngs are crushed by Apple during the ipa creation. To uncrush use:
+    # `xcrun -sdk iphoneos pngcrush -revert-iphone-optimizations crushed.png uncrushed.png`
     def icons
-      paths = info &&
-          info['CFBundleIcons'] &&
-          info['CFBundleIcons']['CFBundlePrimaryIcon'] &&
-          (info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
-              info['CFBundleIcons']['CFBundlePrimaryIcon']['CFBundleIconFiles'])
-      paths ||= 'Icon.png'
+      paths = []
+      path_keys = ['CFBundleIcons', 'CFBundleIcons~ipad']
+      path_keys.each do |path_key|
+        icons = info && (info[path_key] &&
+            info[path_key]['CFBundlePrimaryIcon'] &&
+              (info[path_key]['CFBundlePrimaryIcon']['CFBundleIconFile'] ||
+                info[path_key]['CFBundlePrimaryIcon']['CFBundleIconFiles']))
+        paths.push(*icons)
+      end
+
+      paths << 'Icon.png' if paths.size == 0
 
       unless paths.is_a?(Array)
         paths = [paths]
