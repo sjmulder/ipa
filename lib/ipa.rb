@@ -5,17 +5,17 @@ require 'cfpropertylist'
 module IPA
 	class IPAFile
 		MAPPED_INFO_KEYS = {
-			:name           => 'CFBundleName',
-			:display_name   => 'CFBundleDisplayName',
-			:identifier     => 'CFBundleIdentifier',
-			:icon_path      => 'CFBundleIconFile',
-			:icon_paths     => 'CFBundleIconFiles',
-			:is_iphone      => 'LSRequiresIPhoneOS',
-			:app_category   => 'LSApplicationCategoryType',
-			:version        => 'CFBundleVersion',
-			:version_string => 'CFBundleShortVersionString',
+			:name               => 'CFBundleName',
+			:display_name       => 'CFBundleDisplayName',
+			:identifier         => 'CFBundleIdentifier',
+			:icon_path          => 'CFBundleIconFile',
+			:icon_paths         => 'CFBundleIconFiles',
+			:is_iphone          => 'LSRequiresIPhoneOS',
+			:app_category       => 'LSApplicationCategoryType',
+			:version            => 'CFBundleVersion',
+			:version_string     => 'CFBundleShortVersionString',
 			:minimum_os_version => 'MinimumOSVersion',
-			:device_family      => 'UIDeviceFamily',
+			:device_family      => 'UIDeviceFamily'
 		}
 
 		MAPPED_INFO_KEYS.each do |method_name, key_name|
