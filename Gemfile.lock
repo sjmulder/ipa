@@ -19,7 +19,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.10)
+  bundler
   ipa!
   rake
 

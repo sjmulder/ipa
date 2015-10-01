@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rubyzip', '~> 1.1'
   s.add_dependency 'zip-zip', '~> 0.3'
   s.add_dependency 'CFPropertyList', '~> 2.3'
-  s.add_development_dependency 'bundler', '~> 1.10'
+  s.add_development_dependency 'bundler'
 
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
